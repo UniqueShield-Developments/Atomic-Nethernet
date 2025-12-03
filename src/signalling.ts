@@ -9,7 +9,7 @@ export class SignalStructure {
   public type: SignalType;
   public connectionId: bigint;
   public data: string;
-  public networkId?: bigint;
+  public networkId?: any;
 
   constructor(type: SignalType, connectionId: bigint, data: string, networkId?: bigint) {
     this.type = type;

@@ -1,5 +1,5 @@
 {
-  "name": "atomic-nethernet",
+  "name": "atomic-net",
   "version": "1.0.0",
   "description": "Atomic Nethernet is a Node.JS implementation of the Nethernet protocol for Minecraft Bedrock.",
   "type": "commonjs",
@@ -9,9 +9,13 @@
     "build": "bun tsc -p tsconfig.json",
     "lint": "bun tsc --noEmit -p tsconfig.json",
     "test": "npm run build && mocha --reporter spec --exit",
-    "release": "bun tsc || true && git commit -m \"Prepare Release\" || true && npm version patch && git push && git push --tags && npm publish",
-    "release:full": "bun tsc || true && git commit -m \"Prepare Release\" || true && npm version minor && git push && git push --tags && npm publish"
+    "release": "bun tsc && git commit -m \"Prepare Release\" || true && npm version patch && git push && git push --tags && npm publish",
+    "release:full": "bun tsc && git commit -m \"Prepare Release\" || true && npm version minor && git push && git push --tags && npm publish"
   },
+  "publishConfig": {
+    "access": "public"
+  },
+  "private": false,
   "repository": {
     "type": "git",
     "url": "git+https://github.com/AtomicTS/Atomic-Nethernet.git"
