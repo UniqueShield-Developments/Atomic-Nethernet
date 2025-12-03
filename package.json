@@ -1,0 +1,44 @@
+{
+  "name": "atomic-nethernet",
+  "version": "1.0.0",
+  "description": "Atomic Nethernet is a Node.JS implementation of the Nethernet protocol for Minecraft Bedrock.",
+  "type": "commonjs",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "bun tsc -p tsconfig.json",
+    "lint": "bun tsc --noEmit -p tsconfig.json",
+    "test": "npm run build && mocha --reporter spec --exit",
+    "release": "bun tsc || true && git commit -m \"Prepare Release\" || true && npm version patch && git push && git push --tags && npm publish",
+    "release:full": "bun tsc || true && git commit -m \"Prepare Release\" || true && npm version minor && git push && git push --tags && npm publish"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AtomicTS/Atomic-Nethernet.git"
+  },
+  "keywords": [
+    "prismarine",
+    "template",
+    "minecraft",
+    "bedrock",
+    "nethernet"
+  ],
+  "author": "Serial-V",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AtomicTS/Atomic-Nethernet/issues"
+  },
+  "homepage": "https://github.com/AtomicTS/Atomic-Nethernet#readme",
+  "devDependencies": {
+    "@types/debug": "^4.1.12",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "^22.13.5",
+    "mocha": "^10.0.0",
+    "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "@roamhq/wrtc": "^0.9.1",
+    "protodef": "^1.19.0",
+    "debug": "^4.4.0"
+  }
+}
