@@ -1,0 +1,36 @@
+import { RemoteInfo, Socket } from 'node:dgram';
+import { EventEmitter } from 'node:events';
+import { Connection } from './connection';
+import { SignalStructure } from './signalling';
+import type { IceServer } from './types';
+export declare class Client extends EventEmitter {
+    serverNetworkId: bigint;
+    broadcastAddress: string;
+    networkId: bigint;
+    connectionId: bigint;
+    socket: Socket;
+    serializer: any;
+    deserializer: any;
+    responses: Map<bigint, any>;
+    addresses: Map<bigint, RemoteInfo>;
+    credentials: (string | IceServer)[];
+    signalHandler: (signal: SignalStructure) => void;
+    connection: Connection | null;
+    rtcConnection?: any;
+    pingInterval?: NodeJS.Timeout;
+    running: boolean;
+    constructor(networkId: bigint, broadcastAddress?: string);
+    handleCandidate(signal: SignalStructure): void;
+    handleAnswer(signal: SignalStructure): void;
+    createOffer(): Promise<void>;
+    processPacket(buffer: Buffer, rinfo: RemoteInfo): void;
+    handleResponse(packet: any, rinfo: RemoteInfo): void;
+    handleMessage(packet: any): void;
+    handleSignal(signal: SignalStructure): void;
+    sendDiscoveryRequest(): void;
+    sendDiscoveryMessage(signal: SignalStructure): void;
+    connect(): Promise<void>;
+    send(buffer: Buffer | string | ArrayBuffer | ArrayBufferView): void;
+    ping(): void;
+    close(reason?: string): void;
+}
