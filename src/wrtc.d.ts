@@ -1,4 +1,4 @@
-declare module '@roamhq/wrtc' {
+declare module 'wrtc' {
   export interface RTCIceCandidateInit {
     candidate: string;
     sdpMid?: string | null;

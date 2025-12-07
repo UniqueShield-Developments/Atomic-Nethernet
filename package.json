@@ -41,8 +41,8 @@
     "typescript": "^5.4.5"
   },
   "dependencies": {
-    "@roamhq/wrtc": "^0.9.1",
+    "debug": "^4.4.0",
     "protodef": "^1.19.0",
-    "debug": "^4.4.0"
+    "wrtc": "^0.4.7"
   }
 }

@@ -7,7 +7,7 @@ import { SignalStructure, SignalType } from './signalling';
 import type { IceServer, ServerOptions } from './types';
 import { createPacketData, getRandomUint64, prepareSecurePacket, processSecurePacket } from './util';
 
-const { RTCPeerConnection, RTCIceCandidate } = require('@roamhq/wrtc');
+const { RTCPeerConnection, RTCIceCandidate } = require('wrtc');
 
 const log = debug('atomic-nethernet');
 

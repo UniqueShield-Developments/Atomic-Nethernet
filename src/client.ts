@@ -7,7 +7,7 @@ import { SignalStructure, SignalType } from './signalling';
 import type { IceServer } from './types';
 import { createPacketData, getRandomUint64, prepareSecurePacket, processSecurePacket } from './util';
 
-const { RTCPeerConnection, RTCIceCandidate } = require('@roamhq/wrtc');
+const { RTCPeerConnection, RTCIceCandidate } = require('wrtc');
 
 const PORT = 7551;
 const BROADCAST_ADDRESS = '255.255.255.255';
@@ -82,7 +82,7 @@ export class Client extends EventEmitter {
   }
 
   async createOffer() {
-    this.rtcConnection = new (require('@roamhq/wrtc').RTCPeerConnection)({ iceServers: this.credentials as any });
+    this.rtcConnection = new (require('wrtc').RTCPeerConnection)({ iceServers: this.credentials as any });
 
     this.connection = new Connection(this as any, this.connectionId, this.rtcConnection);
 
